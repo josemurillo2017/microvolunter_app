@@ -16,7 +16,7 @@
 
       <% @volunteer_activity_logs.each do |volunteer_activity_log| %>
       <tr>
-        <td><%= volunteer_activity_log.volunteer_id %></td>
+        <td><%= volunteer_activity_log.volunteer.email %></td>
         <td><%= volunteer_activity_log.task_id %></td>
         <td>
           <a href="/volunteer_activity_logs/<%= volunteer_activity_log.id %>" class="btn btn-primary">Show</a>
