@@ -16,8 +16,20 @@
 
       <% @volunteer_activity_logs.each do |volunteer_activity_log| %>
       <tr>
-        <td><%= volunteer_activity_log.volunteer.email %></td>
-        <td><%= volunteer_activity_log.task.organization_id %></td>
+        <td>
+          <% if volunteer_activity_log.volunteer.present? %>
+            <a href="/volunteers/<%= volunteer_activity_log.volunteer.id %>">
+              <%= volunteer_activity_log.volunteer.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if volunteer_activity_log.task.present? %>
+            <a href="/organizational_tasks/<%= volunteer_activity_log.task.id %>">
+              <%= volunteer_activity_log.task.organization_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/volunteer_activity_logs/<%= volunteer_activity_log.id %>" class="btn btn-primary">Show</a>
           <a href="/volunteer_activity_logs/<%= volunteer_activity_log.id %>/edit" class="btn btn-warning">Edit</a>

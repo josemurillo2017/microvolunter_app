@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Organization</dt>
-      <dd><%= @organizational_task.organization_id %></dd>
+      <dd>
+        <% if @organizational_task.organization.present? %>
+          <a href="/organizations/<%= @organizational_task.organization_id %>">
+            <%= @organizational_task.organization.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Task</dt>
-      <dd><%= @organizational_task.task_id %></dd>
+      <dd>
+        <% if @organizational_task.task.present? %>
+          <a href="/tasks/<%= @organizational_task.task_id %>">
+            <%= @organizational_task.task.task_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Limit tasks</dt>
       <dd><%= @organizational_task.limit_tasks %></dd>

@@ -17,8 +17,20 @@
 
       <% @organizational_tasks.each do |organizational_task| %>
       <tr>
-        <td><%= organizational_task.organization.created_at %></td>
-        <td><%= organizational_task.task.task_name %></td>
+        <td>
+          <% if organizational_task.organization.present? %>
+            <a href="/organizations/<%= organizational_task.organization.id %>">
+              <%= organizational_task.organization.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if organizational_task.task.present? %>
+            <a href="/tasks/<%= organizational_task.task.id %>">
+              <%= organizational_task.task.task_name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= organizational_task.limit_tasks %></td>
         <td>
           <a href="/organizational_tasks/<%= organizational_task.id %>" class="btn btn-primary">Show</a>

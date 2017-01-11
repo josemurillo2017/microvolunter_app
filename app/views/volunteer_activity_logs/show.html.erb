@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Volunteer</dt>
-      <dd><%= @volunteer_activity_log.volunteer_id %></dd>
+      <dd>
+        <% if @volunteer_activity_log.volunteer.present? %>
+          <a href="/volunteers/<%= @volunteer_activity_log.volunteer_id %>">
+            <%= @volunteer_activity_log.volunteer.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Task</dt>
-      <dd><%= @volunteer_activity_log.task_id %></dd>
+      <dd>
+        <% if @volunteer_activity_log.task.present? %>
+          <a href="/organizational_tasks/<%= @volunteer_activity_log.task_id %>">
+            <%= @volunteer_activity_log.task.organization_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

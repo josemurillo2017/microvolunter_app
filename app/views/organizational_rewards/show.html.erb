@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Organization</dt>
-      <dd><%= @organizational_reward.organization_id %></dd>
+      <dd>
+        <% if @organizational_reward.organization.present? %>
+          <a href="/organizations/<%= @organizational_reward.organization_id %>">
+            <%= @organizational_reward.organization.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Reward</dt>
-      <dd><%= @organizational_reward.reward_id %></dd>
+      <dd>
+        <% if @organizational_reward.reward.present? %>
+          <a href="/rewards/<%= @organizational_reward.reward_id %>">
+            <%= @organizational_reward.reward.reward_name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
