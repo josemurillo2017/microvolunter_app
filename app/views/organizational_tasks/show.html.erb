@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Organizational Task #<%= @organizational_task.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Organization</dt>
+      <dd><%= @organizational_task.organization_id %></dd>
+
+      <dt>Task</dt>
+      <dd><%= @organizational_task.task_id %></dd>
+
+      <dt>Limit tasks</dt>
+      <dd><%= @organizational_task.limit_tasks %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/organizational_tasks" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/organizational_tasks/<%= @organizational_task.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_organizational_task/<%= @organizational_task.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

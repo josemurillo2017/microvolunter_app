@@ -1,0 +1,8 @@
+class OrganizationalTask < ApplicationRecord
+  # Direct associations
+
+  # Indirect associations
+
+  # Validations
+
+end

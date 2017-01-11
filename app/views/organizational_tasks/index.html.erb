@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>
+    Organizational tasks
+    <a href="/organizational_tasks/new" class="btn btn-lg btn-success">New Organizational task</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Organization</th>
+        <th>Task</th>
+        <th>Limit tasks</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @organizational_tasks.each do |organizational_task| %>
+      <tr>
+        <td><%= organizational_task.organization_id %></td>
+        <td><%= organizational_task.task_id %></td>
+        <td><%= organizational_task.limit_tasks %></td>
+        <td>
+          <a href="/organizational_tasks/<%= organizational_task.id %>" class="btn btn-primary">Show</a>
+          <a href="/organizational_tasks/<%= organizational_task.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_organizational_task/<%= organizational_task.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
