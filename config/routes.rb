@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Organizational_reward resource:
+  # CREATE
+  get "/organizational_rewards/new", :controller => "organizational_rewards", :action => "new"
+  post "/create_organizational_reward", :controller => "organizational_rewards", :action => "create"
+
+  # READ
+  get "/organizational_rewards", :controller => "organizational_rewards", :action => "index"
+  get "/organizational_rewards/:id", :controller => "organizational_rewards", :action => "show"
+
+  # UPDATE
+  get "/organizational_rewards/:id/edit", :controller => "organizational_rewards", :action => "edit"
+  post "/update_organizational_reward/:id", :controller => "organizational_rewards", :action => "update"
+
+  # DELETE
+  get "/delete_organizational_reward/:id", :controller => "organizational_rewards", :action => "destroy"
+  #------------------------------
+
   # Routes for the Organizational_task resource:
   # CREATE
   get "/organizational_tasks/new", :controller => "organizational_tasks", :action => "new"

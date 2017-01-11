@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>Organizational Reward #<%= @organizational_reward.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Organization</dt>
+      <dd><%= @organizational_reward.organization_id %></dd>
+
+      <dt>Reward</dt>
+      <dd><%= @organizational_reward.reward_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/organizational_rewards" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/organizational_rewards/<%= @organizational_reward.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_organizational_reward/<%= @organizational_reward.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
