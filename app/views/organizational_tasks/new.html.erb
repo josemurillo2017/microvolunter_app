@@ -19,13 +19,7 @@
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
       <!-- Label and input for organization_id -->
-      <div class="form-group">
-        <label for="organization_id" class="control-label">
-          Organization
-        </label>
-
-        <%= select_tag(:organization_id, options_from_collection_for_select(Organization.all, :id, :created_at, @organizational_task.organization_id), :class => "form-control") %>
-      </div>
+      <input type="hidden" name="organization_id" value="<%= current_user.id %>">
 
       <!-- Label and input for task_id -->
       <div class="form-group">

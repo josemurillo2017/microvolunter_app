@@ -48,8 +48,6 @@ class OrganizationalTasksController < ApplicationController
 
   def update
     @organizational_task = OrganizationalTask.find(params[:id])
-
-    @organizational_task.organization_id = params[:organization_id]
     @organizational_task.task_id = params[:task_id]
     @organizational_task.limit_tasks = params[:limit_tasks]
 
