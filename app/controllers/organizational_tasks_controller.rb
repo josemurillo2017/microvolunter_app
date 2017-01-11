@@ -10,7 +10,7 @@ class OrganizationalTasksController < ApplicationController
   end
 
   def index
-    @organizational_tasks = OrganizationalTask.all
+    @organizational_tasks = OrganizationalTask.page(params[:page]).per(10)
 
     render("organizational_tasks/index.html.erb")
   end

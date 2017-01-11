@@ -1,6 +1,6 @@
 class VolunteersController < ApplicationController
   def index
-    @volunteers = Volunteer.all
+    @volunteers = Volunteer.page(params[:page]).per(10)
   end
 
   def show

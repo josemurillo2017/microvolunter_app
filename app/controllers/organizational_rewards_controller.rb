@@ -1,6 +1,6 @@
 class OrganizationalRewardsController < ApplicationController
   def index
-    @organizational_rewards = OrganizationalReward.all
+    @organizational_rewards = OrganizationalReward.page(params[:page]).per(10)
 
     render("organizational_rewards/index.html.erb")
   end

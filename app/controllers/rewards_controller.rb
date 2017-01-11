@@ -1,6 +1,6 @@
 class RewardsController < ApplicationController
   def index
-    @rewards = Reward.all
+    @rewards = Reward.page(params[:page]).per(10)
 
     render("rewards/index.html.erb")
   end
