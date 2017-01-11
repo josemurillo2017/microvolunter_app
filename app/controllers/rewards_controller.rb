@@ -6,6 +6,7 @@ class RewardsController < ApplicationController
   end
 
   def show
+    @organizational_reward = OrganizationalReward.new
     @reward = Reward.find(params[:id])
 
     render("rewards/show.html.erb")

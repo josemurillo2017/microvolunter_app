@@ -6,6 +6,7 @@ class TasksController < ApplicationController
   end
 
   def show
+    @organizational_task = OrganizationalTask.new
     @task = Task.find(params[:id])
 
     render("tasks/show.html.erb")

@@ -16,6 +16,7 @@ class OrganizationalTasksController < ApplicationController
   end
 
   def show
+    @volunteer_activity_log = VolunteerActivityLog.new
     @organizational_task = OrganizationalTask.find(params[:id])
 
     render("organizational_tasks/show.html.erb")
