@@ -24,7 +24,7 @@
           Volunteer
         </label>
 
-        <input type="text" id="volunteer_id" name="volunteer_id" placeholder="Volunteer" class="form-control" value="<%= @volunteer_activity_log.volunteer_id %>">
+        <%= select_tag(:volunteer_id, options_from_collection_for_select(Volunteer.all, :id, :email, @volunteer_activity_log.volunteer_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for task_id -->
