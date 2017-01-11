@@ -1,6 +1,7 @@
 class VolunteerActivityLogsController < ApplicationController
   def index
-    @volunteer_activity_logs = VolunteerActivityLog.page(params[:page]).per(10)
+    @q = VolunteerActivityLog.ransack(params[:q])
+    @volunteer_activity_logs = @q.result(:distinct => true).includes(:volunteer, :task).page(params[:page]).per(10)
 
     render("volunteer_activity_logs/index.html.erb")
   end

@@ -10,7 +10,8 @@ class OrganizationalTasksController < ApplicationController
   end
 
   def index
-    @organizational_tasks = OrganizationalTask.page(params[:page]).per(10)
+    @q = OrganizationalTask.ransack(params[:q])
+    @organizational_tasks = @q.result(:distinct => true).includes(:organization, :task, :volunteer_activity_logs).page(params[:page]).per(10)
 
     render("organizational_tasks/index.html.erb")
   end

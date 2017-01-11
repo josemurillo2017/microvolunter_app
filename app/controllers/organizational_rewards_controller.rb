@@ -1,6 +1,7 @@
 class OrganizationalRewardsController < ApplicationController
   def index
-    @organizational_rewards = OrganizationalReward.page(params[:page]).per(10)
+    @q = OrganizationalReward.ransack(params[:q])
+    @organizational_rewards = @q.result(:distinct => true).includes(:organization, :reward).page(params[:page]).per(10)
 
     render("organizational_rewards/index.html.erb")
   end
