@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Volunteer_activity_log resource:
+  # CREATE
+  get "/volunteer_activity_logs/new", :controller => "volunteer_activity_logs", :action => "new"
+  post "/create_volunteer_activity_log", :controller => "volunteer_activity_logs", :action => "create"
+
+  # READ
+  get "/volunteer_activity_logs", :controller => "volunteer_activity_logs", :action => "index"
+  get "/volunteer_activity_logs/:id", :controller => "volunteer_activity_logs", :action => "show"
+
+  # UPDATE
+  get "/volunteer_activity_logs/:id/edit", :controller => "volunteer_activity_logs", :action => "edit"
+  post "/update_volunteer_activity_log/:id", :controller => "volunteer_activity_logs", :action => "update"
+
+  # DELETE
+  get "/delete_volunteer_activity_log/:id", :controller => "volunteer_activity_logs", :action => "destroy"
+  #------------------------------
+
   # Routes for the Organizational_reward resource:
   # CREATE
   get "/organizational_rewards/new", :controller => "organizational_rewards", :action => "new"

@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    Volunteer activity logs
+    <a href="/volunteer_activity_logs/new" class="btn btn-lg btn-success">New Volunteer activity log</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Volunteer</th>
+        <th>Task</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @volunteer_activity_logs.each do |volunteer_activity_log| %>
+      <tr>
+        <td><%= volunteer_activity_log.volunteer_id %></td>
+        <td><%= volunteer_activity_log.task_id %></td>
+        <td>
+          <a href="/volunteer_activity_logs/<%= volunteer_activity_log.id %>" class="btn btn-primary">Show</a>
+          <a href="/volunteer_activity_logs/<%= volunteer_activity_log.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_volunteer_activity_log/<%= volunteer_activity_log.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

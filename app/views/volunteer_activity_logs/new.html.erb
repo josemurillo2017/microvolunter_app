@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @volunteer_activity_log.errors.any? %>
+  <% @volunteer_activity_log.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Volunteer Activity Log</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_volunteer_activity_log" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for volunteer_id -->
+      <div class="form-group">
+        <label for="volunteer_id" class="control-label">
+          Volunteer
+        </label>
+
+        <input type="text" id="volunteer_id" name="volunteer_id" placeholder="Volunteer" class="form-control" value="<%= @volunteer_activity_log.volunteer_id %>">
+      </div>
+
+      <!-- Label and input for task_id -->
+      <div class="form-group">
+        <label for="task_id" class="control-label">
+          Task
+        </label>
+
+        <input type="text" id="task_id" name="task_id" placeholder="Task" class="form-control" value="<%= @volunteer_activity_log.task_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Volunteer Activity Log
+      </button>
+      or
+      <a href="/volunteer_activity_logs">Cancel</a>
+    </form>
+  </div>
+</div>

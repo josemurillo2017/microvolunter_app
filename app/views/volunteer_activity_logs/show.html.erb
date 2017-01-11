@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>Volunteer Activity Log #<%= @volunteer_activity_log.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Volunteer</dt>
+      <dd><%= @volunteer_activity_log.volunteer_id %></dd>
+
+      <dt>Task</dt>
+      <dd><%= @volunteer_activity_log.task_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/volunteer_activity_logs" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/volunteer_activity_logs/<%= @volunteer_activity_log.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_volunteer_activity_log/<%= @volunteer_activity_log.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
