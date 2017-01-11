@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "tasks#index"
   # Routes for the Volunteer_activity_log resource:
   # CREATE
   get "/volunteer_activity_logs/new", :controller => "volunteer_activity_logs", :action => "new"
