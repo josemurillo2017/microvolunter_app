@@ -33,7 +33,7 @@
           Reward
         </label>
 
-        <input type="text" id="reward_id" name="reward_id" placeholder="Reward" class="form-control" value="<%= @organizational_reward.reward_id %>">
+        <%= select_tag(:reward_id, options_from_collection_for_select(Reward.all, :id, :reward_name, @organizational_reward.reward_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
