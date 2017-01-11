@@ -1,6 +1,10 @@
 class Organization < ApplicationRecord
   # Direct associations
 
+  has_many   :organizationalrewards,
+             :class_name => "OrganizationalReward",
+             :dependent => :destroy
+
   has_many   :organizational_tasks,
              :dependent => :destroy
 
