@@ -1,6 +1,9 @@
 class Volunteer < ApplicationRecord
   # Direct associations
 
+  has_many   :volunteer_activity_logs,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
