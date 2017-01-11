@@ -1,5 +1,7 @@
 ActiveAdmin.register OrganizationalTask do
 
+ permit_params :organization_id, :task_id, :limit_tasks
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
