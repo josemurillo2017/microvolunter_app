@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @task.errors.any? %>
+  <% @task.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Task</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_task" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for task_name -->
+      <div class="form-group">
+        <label for="task_name" class="control-label">
+          Task name
+        </label>
+
+        <input type="text" id="task_name" name="task_name" placeholder="Task name" class="form-control" value="<%= @task.task_name %>">
+      </div>
+
+      <!-- Label and input for task_link -->
+      <div class="form-group">
+        <label for="task_link" class="control-label">
+          Task link
+        </label>
+
+        <input type="text" id="task_link" name="task_link" placeholder="Task link" class="form-control" value="<%= @task.task_link %>">
+      </div>
+
+      <!-- Label and input for assigned_points -->
+      <div class="form-group">
+        <label for="assigned_points" class="control-label">
+          Assigned points
+        </label>
+
+        <input type="text" id="assigned_points" name="assigned_points" placeholder="Assigned points" class="form-control" value="<%= @task.assigned_points %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Task
+      </button>
+      or
+      <a href="/tasks">Cancel</a>
+    </form>
+  </div>
+</div>
