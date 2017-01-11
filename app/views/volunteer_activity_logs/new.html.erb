@@ -33,7 +33,7 @@
           Task
         </label>
 
-        <input type="text" id="task_id" name="task_id" placeholder="Task" class="form-control" value="<%= @volunteer_activity_log.task_id %>">
+        <%= select_tag(:task_id, options_from_collection_for_select(OrganizationalTask.all, :id, :organization_id, @volunteer_activity_log.task_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
