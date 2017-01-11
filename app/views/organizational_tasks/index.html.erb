@@ -17,7 +17,7 @@
 
       <% @organizational_tasks.each do |organizational_task| %>
       <tr>
-        <td><%= organizational_task.organization_id %></td>
+        <td><%= organizational_task.organization.created_at %></td>
         <td><%= organizational_task.task_id %></td>
         <td><%= organizational_task.limit_tasks %></td>
         <td>
