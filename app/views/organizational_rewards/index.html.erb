@@ -17,7 +17,7 @@
       <% @organizational_rewards.each do |organizational_reward| %>
       <tr>
         <td><%= organizational_reward.organization.created_at %></td>
-        <td><%= organizational_reward.reward_id %></td>
+        <td><%= organizational_reward.reward.reward_name %></td>
         <td>
           <a href="/organizational_rewards/<%= organizational_reward.id %>" class="btn btn-primary">Show</a>
           <a href="/organizational_rewards/<%= organizational_reward.id %>/edit" class="btn btn-warning">Edit</a>
