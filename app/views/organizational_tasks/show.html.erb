@@ -20,12 +20,14 @@
       <a href="/organizational_tasks" class="btn btn-primary">
         Back
       </a>
-      <a href="/organizational_tasks/<%= @organizational_task.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_organizational_task/<%= @organizational_task.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @organizational_task.organization %>
+        <a href="/organizational_tasks/<%= @organizational_task.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_organizational_task/<%= @organizational_task.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>

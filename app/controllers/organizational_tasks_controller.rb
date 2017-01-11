@@ -1,4 +1,14 @@
 class OrganizationalTasksController < ApplicationController
+  before_action :current_user_must_be_organizational_task_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_organizational_task_organization
+    organizational_task = OrganizationalTask.find(params[:id])
+
+    unless current_user == organizational_task.organization
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @organizational_tasks = OrganizationalTask.all
 
