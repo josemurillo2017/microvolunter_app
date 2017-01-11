@@ -1,0 +1,8 @@
+class Reward < ApplicationRecord
+  # Direct associations
+
+  # Indirect associations
+
+  # Validations
+
+end

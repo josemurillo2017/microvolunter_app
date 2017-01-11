@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @reward.errors.any? %>
+  <% @reward.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Reward</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_reward" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for reward_name -->
+      <div class="form-group">
+        <label for="reward_name" class="control-label">
+          Reward name
+        </label>
+
+        <input type="text" id="reward_name" name="reward_name" placeholder="Reward name" class="form-control" value="<%= @reward.reward_name %>">
+      </div>
+
+      <!-- Label and input for reward_link -->
+      <div class="form-group">
+        <label for="reward_link" class="control-label">
+          Reward link
+        </label>
+
+        <input type="text" id="reward_link" name="reward_link" placeholder="Reward link" class="form-control" value="<%= @reward.reward_link %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Reward
+      </button>
+      or
+      <a href="/rewards">Cancel</a>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    Rewards
+    <a href="/rewards/new" class="btn btn-lg btn-success">New Reward</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Reward name</th>
+        <th>Reward link</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @rewards.each do |reward| %>
+      <tr>
+        <td><%= reward.reward_name %></td>
+        <td><%= reward.reward_link %></td>
+        <td>
+          <a href="/rewards/<%= reward.id %>" class="btn btn-primary">Show</a>
+          <a href="/rewards/<%= reward.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_reward/<%= reward.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
