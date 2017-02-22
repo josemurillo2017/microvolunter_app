@@ -9,17 +9,17 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
+        <th>Name</th>
         <th>Email</th>
         <th>Password</th>
-        <th>Name</th>
         <th>Actions</th>
       </tr>
 
       <% @organizations.each do |organization| %>
       <tr>
+        <td><%= organization.name %></td>
         <td><%= organization.email %></td>
         <td><%= organization.password %></td>
-        <td><%= organization.name %></td>
         <td>
           <a href="/organizations/<%= organization.id %>" class="btn btn-primary">Show</a>
         </td>

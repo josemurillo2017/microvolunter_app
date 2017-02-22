@@ -15,16 +15,16 @@
       </dd>
 
       <dt>Task</dt>
+      <dd><%= @organizational_task.task_id %></dd>
+
+      <dt>Limit tasks</dt>
       <dd>
         <% if @organizational_task.task.present? %>
-          <a href="/tasks/<%= @organizational_task.task_id %>">
+          <a href="/tasks/<%= @organizational_task.limit_tasks %>">
             <%= @organizational_task.task.task_name %>
           </a>
         <% end %>
       </dd>
-
-      <dt>Limit tasks</dt>
-      <dd><%= @organizational_task.limit_tasks %></dd>
 
     </dl>
 
@@ -41,65 +41,5 @@
         </a>
       <% end %>
     </div>
-  </div>
-</div>
-
-<!-- A Organizational task has many volunteer_activity_logs -->
-
-<div class="row">
-  <div class="col-md-12">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-info">
-        Volunteer Activity Logs
-      </li>
-
-      <% @organizational_task.volunteer_activity_logs.each do |volunteer_activity_log| %>
-        <li class="list-group-item">
-          <a href="/volunteer_activity_logs/<%= volunteer_activity_log.id %>">
-            <%= volunteer_activity_log.volunteer_id %>
-          </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/volunteer_activity_logs/<%= volunteer_activity_log.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
-            </a>
-            <a href="/volunteer_activity_logs/<%= volunteer_activity_log.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_volunteer_activity_log/<%= volunteer_activity_log.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
-          </div>
-        </li>
-      <% end %>
-
-      <li class="list-group-item">
-        <form action="/create_volunteer_activity_log" method="post">
-      <!-- Hidden input for authenticity token to protect from forgery -->
-      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-      <!-- Label and input for volunteer_id -->
-      <div class="form-group">
-        <label for="volunteer_id" class="control-label">
-          Volunteer
-        </label>
-
-        <%= select_tag(:volunteer_id, options_from_collection_for_select(Volunteer.all, :id, :email), :class => "form-control") %>
-      </div>
-
-      <!-- Label and input for task_id -->
-      <div class="form-group">
-        <label for="task_id" class="control-label">
-          Task
-        </label>
-
-        <%= select_tag(:task_id, options_from_collection_for_select(OrganizationalTask.all, :id, :organization_id), :class => "form-control") %>
-      </div>
-
-      <button class="btn btn-block btn-success">
-        Create Volunteer Activity Log
-      </button>
-    </form>
-      </li>
-    </ul>
   </div>
 </div>

@@ -27,7 +27,7 @@
           Task
         </label>
 
-        <%= select_tag(:task_id, options_from_collection_for_select(Task.all, :id, :task_name, @organizational_task.task_id), :class => "form-control") %>
+        <input type="text" id="task_id" name="task_id" placeholder="Task" class="form-control" value="<%= @organizational_task.task_id %>">
       </div>
 
       <!-- Label and input for limit_tasks -->
@@ -36,7 +36,7 @@
           Limit tasks
         </label>
 
-        <input type="text" id="limit_tasks" name="limit_tasks" placeholder="Limit tasks" class="form-control" value="<%= @organizational_task.limit_tasks %>">
+        <%= select_tag(:limit_tasks, options_from_collection_for_select(Task.all, :id, :task_name, @organizational_task.limit_tasks), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">

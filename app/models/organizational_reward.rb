@@ -1,9 +1,8 @@
 class OrganizationalReward < ApplicationRecord
   # Direct associations
 
-  belongs_to :reward
-
-  belongs_to :organization
+  belongs_to :organization,
+             :counter_cache => true
 
   # Indirect associations
 

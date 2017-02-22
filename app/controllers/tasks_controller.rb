@@ -1,12 +1,13 @@
 class TasksController < ApplicationController
   def index
     @q = Task.ransack(params[:q])
-    @tasks = @q.result(:distinct => true).includes(:organizational_tasks).page(params[:page]).per(10)
+    @tasks = @q.result(:distinct => true).includes(:organizational_tasks, :volunteer_activity_logs).page(params[:page]).per(10)
 
     render("tasks/index.html.erb")
   end
 
   def show
+    @volunteer_activity_log = VolunteerActivityLog.new
     @organizational_task = OrganizationalTask.new
     @task = Task.find(params[:id])
 

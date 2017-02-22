@@ -1,7 +1,17 @@
 class OrganizationalRewardsController < ApplicationController
+  before_action :current_user_must_be_organizational_reward_user, :only => [:show, :edit, :update, :destroy]
+
+  def current_user_must_be_organizational_reward_organization
+    organizational_reward = OrganizationalReward.find(params[:id])
+
+    unless current_user == organizational_reward.organization
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
-    @q = OrganizationalReward.ransack(params[:q])
-    @organizational_rewards = @q.result(:distinct => true).includes(:organization, :reward).page(params[:page]).per(10)
+    @q = current_user.organizational_rewards.ransack(params[:q])
+      @organizational_rewards = @q.result(:distinct => true).includes(:organization).page(params[:page]).per(10)
 
     render("organizational_rewards/index.html.erb")
   end
@@ -23,6 +33,7 @@ class OrganizationalRewardsController < ApplicationController
 
     @organizational_reward.organization_id = params[:organization_id]
     @organizational_reward.reward_id = params[:reward_id]
+    @organizational_reward.assigned_points = params[:assigned_points]
 
     save_status = @organizational_reward.save
 
@@ -48,9 +59,8 @@ class OrganizationalRewardsController < ApplicationController
 
   def update
     @organizational_reward = OrganizationalReward.find(params[:id])
-
-    @organizational_reward.organization_id = params[:organization_id]
     @organizational_reward.reward_id = params[:reward_id]
+    @organizational_reward.assigned_points = params[:assigned_points]
 
     save_status = @organizational_reward.save
 

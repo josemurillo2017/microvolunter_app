@@ -11,6 +11,7 @@
       <tr>
         <th>Organization</th>
         <th>Reward</th>
+        <th>Assigned points</th>
         <th>Actions</th>
       </tr>
 
@@ -23,17 +24,15 @@
             </a>
           <% end %>
         </td>
-        <td>
-          <% if organizational_reward.reward.present? %>
-            <a href="/rewards/<%= organizational_reward.reward.id %>">
-              <%= organizational_reward.reward.reward_name %>
-            </a>
-          <% end %>
-        </td>
+        <td><%= organizational_reward.reward_id %></td>
+        <td><%= organizational_reward.assigned_points %></td>
         <td>
           <a href="/organizational_rewards/<%= organizational_reward.id %>" class="btn btn-primary">Show</a>
-          <a href="/organizational_rewards/<%= organizational_reward.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_organizational_reward/<%= organizational_reward.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == organizational_reward.organization %>
+            <a href="/organizational_rewards/<%= organizational_reward.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_organizational_reward/<%= organizational_reward.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

@@ -24,7 +24,7 @@
           Volunteer
         </label>
 
-        <%= select_tag(:volunteer_id, options_from_collection_for_select(Volunteer.all, :id, :email, @volunteer_activity_log.volunteer_id), :class => "form-control") %>
+        <%= select_tag(:volunteer_id, options_from_collection_for_select(Volunteer.all, :id, :created_at, @volunteer_activity_log.volunteer_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for task_id -->
@@ -33,7 +33,7 @@
           Task
         </label>
 
-        <%= select_tag(:task_id, options_from_collection_for_select(OrganizationalTask.all, :id, :organization_id, @volunteer_activity_log.task_id), :class => "form-control") %>
+        <%= select_tag(:task_id, options_from_collection_for_select(Task.all, :id, :task_name, @volunteer_activity_log.task_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">

@@ -1,6 +1,6 @@
-class DeviseCreateVolunteers < ActiveRecord::Migration[5.0]
+class DeviseCreateOrganizations < ActiveRecord::Migration[5.0]
   def change
-    create_table :volunteers do |t|
+    create_table :organizations do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -30,18 +30,16 @@ class DeviseCreateVolunteers < ActiveRecord::Migration[5.0]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
+      t.string :name
       t.string :email
       t.string :password
-      t.string :first_name
-      t.string :last_name
-      t.string :phone_number
 
       t.timestamps null: false
     end
 
-    add_index :volunteers, :email,                unique: true
-    add_index :volunteers, :reset_password_token, unique: true
-    # add_index :volunteers, :confirmation_token,   unique: true
-    # add_index :volunteers, :unlock_token,         unique: true
+    add_index :organizations, :email,                unique: true
+    add_index :organizations, :reset_password_token, unique: true
+    # add_index :organizations, :confirmation_token,   unique: true
+    # add_index :organizations, :unlock_token,         unique: true
   end
 end
