@@ -1,6 +1,6 @@
 ActiveAdmin.register OrganizationalReward do
 
- permit_params :organization_id, :reward_id
+ permit_params :organization_id, :reward_id, :assigned_points
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

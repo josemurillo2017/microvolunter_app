@@ -15,13 +15,10 @@
       </dd>
 
       <dt>Reward</dt>
-      <dd>
-        <% if @organizational_reward.reward.present? %>
-          <a href="/rewards/<%= @organizational_reward.reward_id %>">
-            <%= @organizational_reward.reward.reward_name %>
-          </a>
-        <% end %>
-      </dd>
+      <dd><%= @organizational_reward.reward_id %></dd>
+
+      <dt>Assigned points</dt>
+      <dd><%= @organizational_reward.assigned_points %></dd>
 
     </dl>
 
@@ -29,12 +26,14 @@
       <a href="/organizational_rewards" class="btn btn-primary">
         Back
       </a>
-      <a href="/organizational_rewards/<%= @organizational_reward.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_organizational_reward/<%= @organizational_reward.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @organizational_reward.organization %>
+        <a href="/organizational_rewards/<%= @organizational_reward.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_organizational_reward/<%= @organizational_reward.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>

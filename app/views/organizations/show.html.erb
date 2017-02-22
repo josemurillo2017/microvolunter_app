@@ -5,14 +5,14 @@
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
+      <dt>Name</dt>
+      <dd><%= @organization.name %></dd>
+
       <dt>Email</dt>
       <dd><%= @organization.email %></dd>
 
       <dt>Password</dt>
       <dd><%= @organization.password %></dd>
-
-      <dt>Name</dt>
-      <dd><%= @organization.name %></dd>
 
     </dl>
 
@@ -57,16 +57,16 @@
   </div>
 </div>
 
-<!-- A Organization has many organizationalrewards -->
+<!-- A Organization has many organizational_rewards -->
 
 <div class="row">
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Organizationalrewards
+        Organizational Rewards
       </li>
 
-      <% @organization.organizationalrewards.each do |organizational_reward| %>
+      <% @organization.organizational_rewards.each do |organizational_reward| %>
         <li class="list-group-item">
           <a href="/organizational_rewards/<%= organizational_reward.id %>">
             <%= organizational_reward.organization_id %>

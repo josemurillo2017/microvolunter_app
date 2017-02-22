@@ -18,14 +18,8 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for organization_id -->
-      <div class="form-group">
-        <label for="organization_id" class="control-label">
-          Organization
-        </label>
-
-        <%= select_tag(:organization_id, options_from_collection_for_select(Organization.all, :id, :created_at, @organizational_reward.organization_id), :class => "form-control") %>
-      </div>
+      
+      
 
       <!-- Label and input for reward_id -->
       <div class="form-group">
@@ -33,7 +27,16 @@
           Reward
         </label>
 
-        <%= select_tag(:reward_id, options_from_collection_for_select(Reward.all, :id, :reward_name, @organizational_reward.reward_id), :class => "form-control") %>
+        <input type="text" id="reward_id" name="reward_id" placeholder="Reward" class="form-control" value="<%= @organizational_reward.reward_id %>">
+      </div>
+
+      <!-- Label and input for assigned_points -->
+      <div class="form-group">
+        <label for="assigned_points" class="control-label">
+          Assigned points
+        </label>
+
+        <input type="text" id="assigned_points" name="assigned_points" placeholder="Assigned points" class="form-control" value="<%= @organizational_reward.assigned_points %>">
       </div>
 
       <button class="btn btn-warning">

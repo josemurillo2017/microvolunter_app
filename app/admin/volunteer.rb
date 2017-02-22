@@ -1,6 +1,6 @@
 ActiveAdmin.register Volunteer do
 
- permit_params :email, :password, :first_name, :last_name, :phone_number
+ permit_params :first_name, :last_name, :phone_number, :email, :password
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

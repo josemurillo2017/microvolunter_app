@@ -9,21 +9,21 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>Email</th>
-        <th>Password</th>
         <th>First name</th>
         <th>Last name</th>
         <th>Phone number</th>
+        <th>Email</th>
+        <th>Password</th>
         <th>Actions</th>
       </tr>
 
       <% @volunteers.each do |volunteer| %>
       <tr>
-        <td><%= volunteer.email %></td>
-        <td><%= volunteer.password %></td>
         <td><%= volunteer.first_name %></td>
         <td><%= volunteer.last_name %></td>
         <td><%= volunteer.phone_number %></td>
+        <td><%= volunteer.email %></td>
+        <td><%= volunteer.password %></td>
         <td>
           <a href="/volunteers/<%= volunteer.id %>" class="btn btn-primary">Show</a>
         </td>

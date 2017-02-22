@@ -1,13 +1,12 @@
 class OrganizationalTask < ApplicationRecord
   # Direct associations
 
-  has_many   :volunteer_activity_logs,
-             :foreign_key => "task_id",
-             :dependent => :destroy
+  belongs_to :task,
+             :foreign_key => "limit_tasks",
+             :counter_cache => true
 
-  belongs_to :task
-
-  belongs_to :organization
+  belongs_to :organization,
+             :counter_cache => true
 
   # Indirect associations
 
