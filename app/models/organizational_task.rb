@@ -9,6 +9,8 @@ class OrganizationalTask < ApplicationRecord
 
   belongs_to :organization
 
+  has_many :photos, through: :organization
+
   # Indirect associations
 
   # Validations

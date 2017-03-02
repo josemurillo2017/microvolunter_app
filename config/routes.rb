@@ -1,12 +1,37 @@
 Rails.application.routes.draw do
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root :to => "tasks#index"
+  # Routes for the Photo resource:
+  # CREATE
+  get "/photos/new", :controller => "photos", :action => "new"
+  post "/create_photo", :controller => "photos", :action => "create"
+
+  # READ
+  get "/photos", :controller => "photos", :action => "index"
+  get "/photos/:id", :controller => "photos", :action => "show"
+
+  # UPDATE
+  get "/photos/:id/edit", :controller => "photos", :action => "edit"
+  post "/update_photo/:id", :controller => "photos", :action => "update"
+
+  # DELETE
+  get "/delete_photo/:id", :controller => "photos", :action => "destroy"
+  #------------------------------
+
+
 
   #ROUTES FOR
   get "/add_task", :controller => "organizational_ability", :action => "add_task"
   get "/see_rewards", :controller => "organizational_ability", :action => "add_reward"
 
+  #Master task list for organization
+  get "/rate_logo_set_task", :controller => "master_task_list", :action => "logo_task"
+  post "/save_logo_and_assign_task", :controller => "master_task_list", :action => "save_logo_and_assign_task"
+
+  #Master task list for user
+  get "/rate_logo", :controller => "master_task_list", :action => "rate_logo"
 
   # Routes for the Volunteer_activity_log resource:
   # CREATE

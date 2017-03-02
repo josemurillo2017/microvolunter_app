@@ -1,0 +1,45 @@
+<!-- Validation failure messages -->
+<% if @photo.errors.any? %>
+<% @photo.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
+<% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add the Logo to be Rated</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/save_logo_and_assign_task" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+      <input type="hidden" id="task_id" name="task_id" value="<%=@task_id  %>" class="form-control">
+
+      <!-- Label and input for link -->
+      <div class="form-group">
+        <label for="link" class="control-label">
+          Logo's URL
+        </label>
+
+        <input type="text" id="link" name="link" placeholder="Link" class="form-control" value="<%= @photo.link %>">
+      </div>
+      <!-- Label and input for Task Limit -->
+      <div class="form-group">
+        <label for="task_limit" class="control-label">
+          How many responses do you want?
+        </label>
+        <input type="text" id="task_limit" name="task_limit" placeholder="0" class="form-control">
+      </div>
+
+      <button class="btn btn-success">
+        Create Photo
+      </button>
+      or
+      <a href="/photos">Cancel</a>
+    </form>
+  </div>
+</div>
