@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root :to => "tasks#index"
+
+  #ROUTES FOR
+  get "/add_task", :controller => "organizational_ability", :action => "add_task"
+  get "/see_rewards", :controller => "organizational_ability", :action => "add_reward"
+
+
   # Routes for the Volunteer_activity_log resource:
   # CREATE
   get "/volunteer_activity_logs/new", :controller => "volunteer_activity_logs", :action => "new"
@@ -86,6 +92,8 @@ Rails.application.routes.draw do
   # DELETE
   get "/delete_task/:id", :controller => "tasks", :action => "destroy"
   #------------------------------
+
+
 
   devise_for :volunteers
   # Routes for the Volunteer resource:

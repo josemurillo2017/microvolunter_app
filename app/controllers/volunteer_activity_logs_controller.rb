@@ -1,4 +1,6 @@
 class VolunteerActivityLogsController < ApplicationController
+
+  before_action :restrict_user, only: [:index, :show]
   def index
     @q = VolunteerActivityLog.ransack(params[:q])
     @volunteer_activity_logs = @q.result(:distinct => true).includes(:volunteer, :task).page(params[:page]).per(10)
@@ -77,6 +79,12 @@ class VolunteerActivityLogsController < ApplicationController
       redirect_to("/", :notice => "Volunteer activity log deleted.")
     else
       redirect_back(:fallback_location => "/", :notice => "Volunteer activity log deleted.")
+    end
+  end
+
+  def restrict_user
+    if not current_user
+      redirect_to home
     end
   end
 end

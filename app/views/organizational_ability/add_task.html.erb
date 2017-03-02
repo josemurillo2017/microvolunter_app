@@ -1,0 +1,15 @@
+#Make a list of tasks
+<h2> List of Tasks</h2>
+<p> Below is a list of tasks that the organization can add to their repository.
+<% @potential_task.each do |task| %>
+<p><a href="<%= task.task_link %>"> <%= task.task_name %></a></p>
+<% end %>
+
+<h3> Previous Tasks </h3>
+<p> All the task the organization has assigned in the past </p>
+
+<ul>
+<% @old_organizational_task.each do |ogt| %>
+<li> <%= ogt.organization.name %></li>
+<% end  %>
+</ul>

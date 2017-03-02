@@ -1,0 +1,15 @@
+#Make a list of rewards
+<h2> List of rewards</h2>
+<p> Below is a list of rewards that the organization can add to their repository.
+<% @potential_reward.each do |reward| %>
+<p><a href="<%= reward.reward_link %>"> <%= reward.reward_name %></a></p>
+<% end %>
+
+<h3> Previous rewards </h3>
+<p> All the reward the organization has assigned in the past </p>
+
+<ul>
+<% @old_organizational_reward.each do |ogt| %>
+<li> <%= ogt.organization.name %></li>
+<% end  %>
+</ul>

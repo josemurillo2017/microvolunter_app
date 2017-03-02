@@ -9,6 +9,8 @@ class OrganizationalTasksController < ApplicationController
     end
   end
 
+
+
   def index
     @q = OrganizationalTask.ransack(params[:q])
     @organizational_tasks = @q.result(:distinct => true).includes(:organization, :task, :volunteer_activity_logs).page(params[:page]).per(10)

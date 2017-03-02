@@ -34,8 +34,8 @@
         <td><%= organizational_task.limit_tasks %></td>
         <td>
           <a href="/organizational_tasks/<%= organizational_task.id %>" class="btn btn-primary">Show</a>
-          
-          <% if current_user == organizational_task.organization %>
+
+          <% if current_organization.id == organizational_task.organization %>
             <a href="/organizational_tasks/<%= organizational_task.id %>/edit" class="btn btn-warning">Edit</a>
             <a href="/delete_organizational_task/<%= organizational_task.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
           <% end %>
