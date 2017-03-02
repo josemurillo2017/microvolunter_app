@@ -9,7 +9,7 @@ class OrganizationalTask < ApplicationRecord
 
   belongs_to :organization
 
-  has_many :photos, through: :organization
+  has_many :photos, through: :organizations
 
   # Indirect associations
 
