@@ -29,13 +29,26 @@ class MasterTaskListController < ApplicationController
 
   def rate_logo
       # @organizational_task = params[:organizational_task]
-      @organizational_task = 2
-      @task_id = 1
-
-      @assigned_task = OrganizationalTask.find(@organizational_task)
+      @organizational_task = params[:id]
+      @assigned_task = OrganizationalTask.find(params[:id])
       @logo = Photo.where({:organizational_id => @assigned_task.organization_id}).first
-      # @assigned_task.Photos.first
+  end
+  def save_response
+    #Saving the response
+    assigned_task = OrganizationalTask.find(params[:id])
+    logo = Photo.where({:organizational_id => assigned_task.organization_id}).first
+    volunteer_rating_logo = LogoRating.new
+    volunteer_rating_logo.logo_id = logo.id
+    volunteer_rating_logo.volunteer_id = current_volunteer.id
+    volunteer_rating_logo.rating = params[:response]
+    volunteer_rating_logo.save
 
+    #Saving volunteer's work in log
+    volunteer_log = VolunteerActivityLog.new
+    volunteer_log.volunteer_id = current_volunteer.id
+    volunteer_log.task_id = params[:id]
+    volunter_log.save
 
+    redirect_to("/")
   end
 end

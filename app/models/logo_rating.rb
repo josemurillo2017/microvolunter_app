@@ -1,0 +1,2 @@
+class LogoRating < ApplicationRecord
+end

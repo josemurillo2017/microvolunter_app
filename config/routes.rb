@@ -26,12 +26,12 @@ Rails.application.routes.draw do
   get "/add_task", :controller => "organizational_ability", :action => "add_task"
   get "/see_rewards", :controller => "organizational_ability", :action => "add_reward"
 
-  #Master task list for organization
+  #Master task list for rating logos
   get "/rate_logo_set_task", :controller => "master_task_list", :action => "logo_task"
   post "/save_logo_and_assign_task", :controller => "master_task_list", :action => "save_logo_and_assign_task"
+  get "/rate_logo/:response/:id", :controller => "master_task_list", :action => "save_response"
+  get "/rate_logo/:id", :controller => "master_task_list", :action => "rate_logo"
 
-  #Master task list for user
-  get "/rate_logo", :controller => "master_task_list", :action => "rate_logo"
 
   # Routes for the Volunteer_activity_log resource:
   # CREATE
