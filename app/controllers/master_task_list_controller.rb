@@ -33,7 +33,8 @@ class MasterTaskListController < ApplicationController
       @task_id = 1
 
       @assigned_task = OrganizationalTask.find(@organizational_task)
-      @logo = @assigned_task.Photos.first
+      @logo = Photo.where({:organizational_id => @assigned_task.organization_id}).first
+      # @assigned_task.Photos.first
 
 
   end
