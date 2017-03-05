@@ -6,7 +6,7 @@
 <% @all_current_tasks.each do |current_task| %>
 <% simple_current_task = current_task.task %>
 <p>
-  <a href="<%= simple_current_task.task_link %>">
+  <a href="<%= simple_current_task.task_link %>\<%= current_task.id %>">
     <%= simple_current_task.task_name %>
   </a>
   by <%= current_task.organization.name %>

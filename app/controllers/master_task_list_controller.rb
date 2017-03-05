@@ -29,8 +29,8 @@ class MasterTaskListController < ApplicationController
 
   def rate_logo
       # @organizational_task = params[:organizational_task]
-      @organizational_task = params[:id]
-      @assigned_task = OrganizationalTask.find(params[:id])
+      @organizational_task = params[:task_id]
+      @assigned_task = OrganizationalTask.find(@organizational_task)
       @logo = Photo.where({:organizational_id => @assigned_task.organization_id}).first
   end
   def save_response
