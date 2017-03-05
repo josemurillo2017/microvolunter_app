@@ -40,6 +40,7 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <!--
         <ul class="nav navbar-nav">
           <li><a href="/volunteer_activity_logs">Volunteer Activity Logs</a></li>
           <li><a href="/organizational_rewards">Organizational Rewards</a></li>
@@ -50,12 +51,12 @@
           <li><a href="/organizations">Organizations</a></li>
           <li><a href="/rails/info">Sitemap</a></li>
         </ul>
-
+      -->
         <ul class="nav navbar-nav navbar-right">
           <% if current_organization.present? %>
             <li>
               <a href="/organizations/edit">
-                <%= current_organization.created_at %>
+                <%= current_organization.name %>
               </a>
             </li>
 
