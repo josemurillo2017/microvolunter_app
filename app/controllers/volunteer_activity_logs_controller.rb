@@ -83,7 +83,7 @@ class VolunteerActivityLogsController < ApplicationController
   end
 
   def restrict_user
-    if not current_user
+    if not current_volunteer
       redirect_to home
     end
   end

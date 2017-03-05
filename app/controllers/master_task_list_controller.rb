@@ -47,7 +47,7 @@ class MasterTaskListController < ApplicationController
     volunteer_log = VolunteerActivityLog.new
     volunteer_log.volunteer_id = current_volunteer.id
     volunteer_log.task_id = params[:id]
-    volunter_log.save
+    volunteer_log.save
 
     redirect_to("/")
   end

@@ -1,0 +1,16 @@
+<h1> Hello </h1>
+<h2> Missing </h2>
+<h3> Hello <%= current_volunteer.last_name %></h3>
+<p> Points: <b> Add code for points here </b></p>
+
+<% @all_current_tasks.each do |current_task| %>
+<% simple_current_task = current_task.task %>
+<p>
+  <a href="<%= simple_current_task.task_link %>">
+    <%= simple_current_task.task_name %>
+  </a>
+  by <%= current_task.organization.name %>
+</p>
+
+
+<% end  %>
