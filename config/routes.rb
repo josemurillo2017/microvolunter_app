@@ -32,7 +32,6 @@ Rails.application.routes.draw do
   get "/rate_logo/:response/:id", :controller => "master_task_list", :action => "save_response"
   get "/rate_logo/:task_id", :controller => "master_task_list", :action => "rate_logo"
 
-
   # Routes for the Volunteer_activity_log resource:
   # CREATE
   get "/volunteer_activity_logs/new", :controller => "volunteer_activity_logs", :action => "new"
