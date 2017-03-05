@@ -8,5 +8,6 @@ class VolunteersController < ApplicationController
   end
   def dashboard
     @all_current_tasks = OrganizationalTask.all()
+    @old_tasks = VolunteerActivityLog.where("volunteer_id ==#{current_volunteer.id}")
   end
 end

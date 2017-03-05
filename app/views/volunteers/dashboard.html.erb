@@ -3,6 +3,7 @@
 <h3> Hello <%= current_volunteer.last_name %></h3>
 <p> Points: <b> Add code for points here </b></p>
 
+<p><b> Tasks to consider </b></p>
 <% @all_current_tasks.each do |current_task| %>
 <% simple_current_task = current_task.task %>
 <p>
@@ -11,6 +12,10 @@
   </a>
   by <%= current_task.organization.name %>
 </p>
-
-
 <% end  %>
+
+<p><b> Old Tasks Completed </b></p>
+<% @old_tasks.each do |old_task| %>
+
+<p><%= old_task.task.task.task_name %></p>
+<% end %>

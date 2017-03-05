@@ -27,10 +27,10 @@ Rails.application.routes.draw do
   get "/see_rewards", :controller => "organizational_ability", :action => "add_reward"
 
   #URLs to set logos
-  get "/rate_logo_set_task", :controller => "master_task_list", :action => "logo_task"
-  post "/save_logo_and_assign_task", :controller => "master_task_list", :action => "save_logo_and_assign_task"
-  get "/rate_logo/:response/:id", :controller => "master_task_list", :action => "save_response"
-  get "/rate_logo/:task_id", :controller => "master_task_list", :action => "rate_logo"
+  get "/rate_logo_set_task", :controller => "rate_logo", :action => "logo_task"
+  post "/save_logo_and_assign_task", :controller => "rate_logo", :action => "save_logo_and_assign_task"
+  get "/rate_logo/:response/:id", :controller => "rate_logo", :action => "save_response"
+  get "/rate_logo/:task_id", :controller => "rate_logo", :action => "rate_logo"
 
   # Routes for the Volunteer_activity_log resource:
   # CREATE

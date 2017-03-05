@@ -1,4 +1,4 @@
-class MasterTaskListController < ApplicationController
+class RateLogoController < ApplicationController
 
   # ##########################
   # TASK 1: Rate a logo
@@ -49,6 +49,6 @@ class MasterTaskListController < ApplicationController
     volunteer_log.task_id = params[:id]
     volunteer_log.save
 
-    redirect_to("/")
+    redirect_to("/dashboard")
   end
 end
