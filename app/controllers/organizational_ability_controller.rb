@@ -11,6 +11,6 @@ class OrganizationalAbilityController < ApplicationController
   end
   def dashboard
     @current_task = OrganizationalTask.where(:organization_id => current_organization.id).count
-
+    @top_volunteers = 1;
   end
 end
