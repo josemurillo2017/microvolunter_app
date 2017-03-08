@@ -4,6 +4,11 @@ class RateLogoController < ApplicationController
   # TASK 1: Rate a logo
   # #############################
 
+
+  # ##########################
+  #       Org
+  # #############################
+
   def logo_task
     #Task to rate a logo
     @photo = Photo.new
@@ -18,25 +23,43 @@ class RateLogoController < ApplicationController
     @photo.organizational_id = current_organization.id
     @photo.link = params[:link]
     @photo.save
+
     #Assigning logo task to organization
     @new_task = OrganizationalTask.new
     @new_task.task_id = params[:task_id]
     @new_task.organization_id = current_organization.id
     @new_task.limit_tasks = params[:task_limit]
     @new_task.save
-    redirect_to("/org/dashboard")
+
+    #Saving logo to organizational_task
+    @new_ogt = OgtPhoto.new
+    @new_ogt.org_task_id = @new_task.id
+    @new_ogt.photo_logo_id = @photo.id
+    @new_ogt.save
+
+    redirect_to("/add_task")
+  end
+  def show
+    @organizational_task = params[:task_id].to_i
+    @assigned_task = OgtPhoto.where({:org_task_id => @organizational_task}).first
+    @logo = @assigned_task.photo
   end
 
+  # ##########################
+  # Volunteer
+  # #############################
+
+
   def rate_logo
-      # @organizational_task = params[:organizational_task]
-      @organizational_task = params[:task_id]
-      @assigned_task = OrganizationalTask.find(@organizational_task)
-      @logo = Photo.where({:organizational_id => @assigned_task.organization_id}).first
+    @organizational_task = params[:task_id].to_i
+    @assigned_task = OgtPhoto.where({:org_task_id => @organizational_task}).first
+    @logo = @assigned_task.photo
   end
   def save_response
     #Saving the response
     assigned_task = OrganizationalTask.find(params[:id])
     logo = Photo.where({:organizational_id => assigned_task.organization_id}).first
+
     volunteer_rating_logo = LogoRating.new
     volunteer_rating_logo.logo_id = logo.id
     volunteer_rating_logo.volunteer_id = current_volunteer.id
@@ -51,4 +74,5 @@ class RateLogoController < ApplicationController
 
     redirect_to("/dashboard")
   end
+
 end

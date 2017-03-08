@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
 
   get "/dashboard", :controller => "volunteers", :action =>"dashboard"
+
+  #Organization pages
   get "/org/dashboard", :controller => "organizational_ability", :action => "dashboard"
   get "/add_task", :controller => "organizational_ability", :action => "add_task"
   get "/see_rewards", :controller => "organizational_ability", :action => "add_reward"
@@ -15,6 +17,7 @@ Rails.application.routes.draw do
   #URLs to set logos
   get "/rate_logo_set_task", :controller => "rate_logo", :action => "logo_task"
   post "/save_logo_and_assign_task", :controller => "rate_logo", :action => "save_logo_and_assign_task"
+  get "/rate_logo/show/:task_id", :controller => "rate_logo", :action => "show"
   get "/rate_logo/:response/:id", :controller => "rate_logo", :action => "save_response"
   get "/rate_logo/:task_id", :controller => "rate_logo", :action => "rate_logo"
 

@@ -1,6 +1,4 @@
 class OrganizationalAbilityController < ApplicationController
-
-
   def add_task
     @potential_task = Task.all
     @old_organizational_task = current_organization.organizational_tasks.all
