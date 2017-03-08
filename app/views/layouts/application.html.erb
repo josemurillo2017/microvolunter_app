@@ -40,6 +40,8 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
         <!--
         <ul class="nav navbar-nav">
         <li><a href="/volunteer_activity_logs">Volunteer Activity Logs</a></li>
@@ -52,6 +54,16 @@
         <li><a href="/rails/info">Sitemap</a></li>
       </ul>
     -->
+    <% if current_organization.present? %>
+    <ul class="nav navbar-nav">
+      <li><a href="/org/dashboard">Dashboard</a></li>
+      <li><a href="/add_task">Add Task</a></li>
+      <li><a href="/see_rewards">Modify Rewards</a></li>
+    </ul>
+
+    <% end %>
+
+
     <ul class="nav navbar-nav navbar-right">
       <% if current_organization.present? %>
       <li>
