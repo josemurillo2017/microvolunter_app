@@ -8,7 +8,6 @@ class RateLogoController < ApplicationController
     #Task to rate a logo
     @photo = Photo.new
     @task_id = 1
-    render("/master_task_list/rate_a_logo_organization")
   end
 
   def save_logo_and_assign_task
@@ -25,6 +24,7 @@ class RateLogoController < ApplicationController
     @new_task.organization_id = current_organization.id
     @new_task.limit_tasks = params[:task_limit]
     @new_task.save
+    redirect_to("/org/dashboard")
   end
 
   def rate_logo
