@@ -1,5 +1,5 @@
 
-<h1> Hello <%= current_volunteer.first_name %>! <br> Welcome to the Microvolunteer Portal</h3>
+<h1> Hello <%= current_volunteer.first_name %>! <br> Welcome to the Microvolunteer Portal</h1>
 <p> Points: <b> Add code for points here </b></p>
 
 <p><b> Tasks to consider </b></p>
@@ -11,10 +11,18 @@
   </a>
   by <%= current_task.organization.name %>
 </p>
-<% end  %>
+<% end %>
 
-<p><b> Old Tasks Completed </b></p>
+<!-- <p><b> Old Tasks Completed </b></p>
 <% @old_tasks.each do |old_task| %>
 
 <p><%= old_task.task.task.task_name %></p>
+<% end %> -->
+
+<% if @random_task != nil  %>
+<h2> Select a random task </h2>
+<a href="<%@random_task.task.task_link %>/<%= @random_task.id %>"> Random Task Picker </a>
 <% end %>
+
+<!--
+-->

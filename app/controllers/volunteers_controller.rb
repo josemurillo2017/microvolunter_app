@@ -9,5 +9,6 @@ class VolunteersController < ApplicationController
   def dashboard
     @all_current_tasks = OrganizationalTask.all()
     @old_tasks = VolunteerActivityLog.where("volunteer_id ==#{current_volunteer.id}")
+    @random_task = OrganizationalTask.order("RANDOM()").first
   end
 end
