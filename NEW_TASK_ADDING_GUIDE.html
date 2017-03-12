@@ -1,0 +1,12 @@
+5 routes are needed
+
+get "/rate_logo_set_task", :controller => "rate_logo", :action => "logo_task"
+post "/save_logo_and_assign_task", :controller => "rate_logo", :action => "save_logo_and_assign_task"
+get "/rate_logo/show/:task_id", :controller => "rate_logo", :action => "show"
+get "/rate_logo/:response/:id", :controller => "rate_logo", :action => "save_response"
+get "/rate_logo/:task_id", :controller => "rate_logo", :action => "rate_logo"
+
+The first route is to a page where the organization can add a task to their repository
+- path must be name_of_task_set_task
+The second route saves the task and adds it the repository
+The third route allows the 
